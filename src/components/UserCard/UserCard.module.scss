@@ -6,7 +6,8 @@
   background-color: $background;
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .name{
@@ -19,4 +20,15 @@
   object-fit: cover;
   border-radius: 50%;
   border: 1px solid $accent03;
+}
+
+.link{
+  color: $accent02;
+  transition: color 0.3s ease;
+  &:hover{
+    color: $accent04;
+  }
+  &:visited{
+    opacity: 0.8;
+  }
 }

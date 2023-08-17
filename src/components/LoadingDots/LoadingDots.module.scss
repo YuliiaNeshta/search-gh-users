@@ -1,0 +1,23 @@
+@import "../../styles/colors";
+
+.loading::after {
+  font-size: 1.8rem;
+  color: $accent;
+  content: "Loading";
+  animation: loading 1s infinite ease-in-out;
+}
+
+@keyframes loading {
+  0% {
+    content: "Loading";
+  }
+  33% {
+    content: "Loading.";
+  }
+  66% {
+    content: "Loading..";
+  }
+  100% {
+    content: "Loading...";
+  }
+}

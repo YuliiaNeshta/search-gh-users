@@ -2,6 +2,7 @@ import axios from 'axios';
 import { ChangeEvent, useState } from 'react';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
+import LoadingDots from '../../components/LoadingDots';
 import styles from './Home.module.scss';
 import UserCard from '../../components/UserCard';
 
@@ -50,7 +51,7 @@ const Home = () => {
       </div>
       <div className={styles.result}>
         {isLoading ? (
-          <p className={styles.loading}></p>
+          <LoadingDots />
         ) : errorText ? (
           <p className={styles.error}>{errorText}</p>
         ) : users.length > 0 ? (
