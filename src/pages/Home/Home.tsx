@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, KeyboardEvent, useState } from 'react';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import LoadingDots from '../../components/LoadingDots';
@@ -20,15 +20,22 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorText, setErrorText] = useState<string>('');
 
+  const handleKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {
+    if (event.key === 'Enter') {
+      onSearch();
+    }
+  };
+
   const onInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
   };
 
-  const onSearch = (userName: string) => {
+  const onSearch = () => {
+    const currentSearchValue = searchValue;
     setIsLoading(true);
     setUsers([]);
     setErrorText('');
-    axios(`https://api.github.com/search/users?q=${userName}`)
+    axios(`https://api.github.com/search/users?q=${currentSearchValue}`)
       .then(response => {
         console.log(response);
         setUsers(response.data.items);
@@ -46,8 +53,8 @@ const Home = () => {
     <div className="content">
       <h1 className={styles.heading}>Search for a GitHub user</h1>
       <div className="flex-center">
-        <Input placeholder="Search User" value={searchValue} onChange={onInputChange} />
-        <Button onClick={() => onSearch(searchValue)}>Search</Button>
+        <Input placeholder="Write username..." value={searchValue} onKeyDown={handleKeyDown} onChange={onInputChange} />
+        <Button onClick={onSearch}>Search</Button>
       </div>
       <div className={styles.result}>
         {isLoading ? (

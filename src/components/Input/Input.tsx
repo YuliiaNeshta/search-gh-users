@@ -2,10 +2,17 @@ import { FC } from 'react';
 import styles from './Input.module.scss';
 import { InputProps } from './types';
 
-const Input: FC<InputProps> = ({ placeholder, onChange, value }) => {
+const Input: FC<InputProps> = ({ placeholder, onChange, onKeyDown, value }) => {
   return (
     <label className={styles.label}>
-      <input onChange={onChange} className={styles.input} value={value} type="text" placeholder={placeholder} />
+      <input
+        onChange={onChange}
+        onKeyDown={onKeyDown}
+        className={styles.input}
+        value={value}
+        type="text"
+        placeholder={placeholder}
+      />
     </label>
   );
 };
