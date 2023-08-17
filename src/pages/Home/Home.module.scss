@@ -1,0 +1,45 @@
+@import "../../styles/colors";
+
+.heading{
+  font-size: 2.5rem;
+  color: $accent;
+  margin-bottom: 2rem;
+}
+
+.loading::after {
+  font-size: 1.8rem;
+  color: $accent;
+  content: "Loading";
+  animation: loading 1s infinite ease-in-out;
+}
+
+@keyframes loading {
+  0% {
+    content: "Loading";
+  }
+  33% {
+    content: "Loading.";
+  }
+  66% {
+    content: "Loading..";
+  }
+  100% {
+    content: "Loading...";
+  }
+}
+
+.result{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.error{
+  font-size: 1.4rem;
+  color: $error;
+}
+
+.noResult{
+  font-size: 1.4rem;
+  color: $accent;
+}

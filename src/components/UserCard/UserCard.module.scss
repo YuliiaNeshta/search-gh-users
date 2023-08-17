@@ -1,0 +1,22 @@
+@import "../../styles/colors";
+
+.card{
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: $background;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.name{
+  margin-bottom: 0.625rem;
+}
+
+.avatar{
+  width: 9.375rem;
+  height: 9.375rem;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid $accent03;
+}
